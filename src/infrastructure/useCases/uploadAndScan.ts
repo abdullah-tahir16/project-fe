@@ -2,7 +2,7 @@ import { useScanEmails } from '../hooks/useScanEmails';
 import { toast } from 'react-toastify';
 
 export const useUploadAndScan = () => {
-    const { mutate, ...rest } = useScanEmails();
+    const { mutate, isPending, ...rest } = useScanEmails();
 
     const scan = (file: File) => {
         mutate(file, {
@@ -15,5 +15,5 @@ export const useUploadAndScan = () => {
         });
     };
 
-    return { scan, ...rest };
+    return { scan, isPending, ...rest };
 };

@@ -8,11 +8,11 @@ import Loader from '../../components/Loader/Loader';
 import PredictionList from '../../components/PredictionList/PredictionList';
 
 export default function SpamDetection() {
-    const [file, setFile] = useState<File | null>(null);
+    const [file, setFile] = useState<globalThis.File | null>(null);
     const [darkMode, setDarkMode] = useState(false);
 
-    const { scan, data: predictions = [], isLoading: scanning } = useUploadAndScan();
-    const { train, isLoading: training } = useTrainModelUseCase();
+    const { scan, data: predictions = [], isPending: scanning } = useUploadAndScan();
+    const { train, isPending: training } = useTrainModelUseCase();
 
     // Combined loading state for both operations
     const isLoading = scanning || training;
@@ -35,8 +35,8 @@ export default function SpamDetection() {
                     </div>
 
                     {isLoading && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 dark:bg-gray-900/30">
-                            <div className="bg-white dark:bg-gray-800 p-4 rounded-full shadow-lg">
+                        <div className="fixed inset-0 z-50 bg-black/30 dark:bg-gray-900/30 flex items-center justify-center">
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-full shadow-lg border border-gray-200 dark:border-gray-700">
                                 <Loader />
                             </div>
                         </div>
