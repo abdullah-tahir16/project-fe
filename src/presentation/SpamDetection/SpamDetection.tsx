@@ -3,6 +3,7 @@ import { useTrainModelUseCase } from '../../infrastructure/useCases/trainModel';
 import { useState } from 'react';
 import FileInput from '../../components/FileInput/FileInput';
 import Button from '../../components/Button/Button';
+import { CheckCircleIcon, XCircleIcon, AtSymbolIcon } from '@heroicons/react/20/solid';
 import PredictionList from '../../components/PredictionList/PredictionList';
 
 export default function SpamDetection() {
@@ -17,7 +18,10 @@ export default function SpamDetection() {
             <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-black flex items-center justify-center p-6 transition-colors">
                 <div className="w-full max-w-xl bg-white dark:bg-gray-800 shadow-2xl rounded-2xl p-8 space-y-6 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white">
                     <div className="flex justify-between items-center">
-                        <h1 className="text-2xl font-semibold">📬 Spam Detection</h1>
+                        <div className="flex items-center gap-2">
+                            <AtSymbolIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                            <h1 className="text-2xl font-semibold">Spam Detection</h1>
+                        </div>
                         <button
                             className="text-sm px-2 py-1 border rounded hover:bg-gray-100 dark:hover:bg-gray-700"
                             onClick={() => setDarkMode((prev) => !prev)}
