@@ -26,6 +26,12 @@ export default function SpamDetection() {
                         </button>
                     </div>
 
+                    {(scanning || training) && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                        </div>
+                    )}
+
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                         Upload a CSV file with email subjects to detect spam using a trained model.
                     </p>
