@@ -54,7 +54,6 @@ export default function SpamDetection() {
                             onClick={() => file && scan(file)}
                             disabled={!file || scanning}
                             variant="primary"
-                            loading={scanning}
                             className="w-full sm:w-auto text-sm px-4 py-2"
                         />
                         <Button
@@ -62,7 +61,6 @@ export default function SpamDetection() {
                             onClick={train}
                             disabled={training}
                             variant="secondary"
-                            loading={training}
                             className="w-full sm:w-auto text-sm px-4 py-2"
                         />
                     </div>

@@ -1,10 +1,8 @@
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Loader from '../Loader/Loader';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
-    loading?: boolean;
     variant?: 'primary' | 'secondary' | 'danger';
 }
 
@@ -15,20 +13,21 @@ const variantStyles = {
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ label, loading = false, variant = 'primary', className, ...props }, ref) => (
+    ({ label, variant = 'primary', className, ...props }, ref) => (
         <button
             ref={ref}
             className={twMerge(
-                'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium px-4 py-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50',
+                'inline-flex items-center justify-center rounded-md text-sm font-medium px-4 py-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50',
                 variantStyles[variant],
                 className
             )}
             {...props}
         >
-            {loading ? <Loader /> : label}
+            {label}
         </button>
     )
 );
 
 Button.displayName = 'Button';
+
 export default Button;
