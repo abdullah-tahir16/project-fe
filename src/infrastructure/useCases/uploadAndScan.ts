@@ -7,10 +7,10 @@ export const useUploadAndScan = () => {
     const scan = (file: File) => {
         mutate(file, {
             onSuccess: () => {
-                toast.success('Emails scanned successfully');
+                toast.success('✅ Scan complete.');
             },
-            onError: () => {
-                toast.error('Scan failed. Check the file or server.');
+            onError: (error: any) => {
+                toast.error(error?.message || '❌ Failed to scan emails');
             },
         });
     };
