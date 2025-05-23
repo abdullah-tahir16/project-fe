@@ -4,6 +4,7 @@ import { useState } from 'react';
 import FileInput from '../../components/FileInput/FileInput';
 import Button from '../../components/Button/Button';
 import { AtSymbolIcon } from '@heroicons/react/20/solid';
+import Loader from '../../components/Loader/Loader';
 import PredictionList from '../../components/PredictionList/PredictionList';
 
 export default function SpamDetection() {
@@ -12,6 +13,9 @@ export default function SpamDetection() {
 
     const { scan, data: predictions = [], isLoading: scanning } = useUploadAndScan();
     const { train, isLoading: training } = useTrainModelUseCase();
+
+    // Combined loading state for both operations
+    const isLoading = scanning || training;
 
     return (
         <div className={`${darkMode ? 'dark' : ''}`}>
@@ -30,9 +34,11 @@ export default function SpamDetection() {
                         </button>
                     </div>
 
-                    {(scanning || training) && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+                    {isLoading && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                            <div className="w-8 h-8">
+                                <Loader />
+                            </div>
                         </div>
                     )}
 
