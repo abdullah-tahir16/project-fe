@@ -3,7 +3,7 @@ import { useTrainModelUseCase } from '../../infrastructure/useCases/trainModel';
 import { useState } from 'react';
 import FileInput from '../../components/FileInput/FileInput';
 import Button from '../../components/Button/Button';
-import { CheckCircleIcon, XCircleIcon, AtSymbolIcon } from '@heroicons/react/20/solid';
+import { AtSymbolIcon } from '@heroicons/react/20/solid';
 import PredictionList from '../../components/PredictionList/PredictionList';
 
 export default function SpamDetection() {
