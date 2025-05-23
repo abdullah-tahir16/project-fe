@@ -35,8 +35,8 @@ export default function SpamDetection() {
                     </div>
 
                     {isLoading && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-                            <div className="w-8 h-8">
+                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 dark:bg-gray-900/30">
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-full shadow-lg">
                                 <Loader />
                             </div>
                         </div>
