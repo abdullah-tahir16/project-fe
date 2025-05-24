@@ -7,10 +7,10 @@ export const useTrainModelUseCase = () => {
     const train = () => {
         mutate(undefined, {
             onSuccess: (data) => {
-                toast.success(data.message || '✅ Model trained successfully.');
+                toast.success(data.message || ' Model trained successfully.');
             },
-            onError: (error: any) => {
-                toast.error(error?.message || '❌ Training failed.');
+            onError: (error: Error) => {
+                toast.error(error.message || ' Training failed.');
             },
         });
     };

@@ -11,7 +11,7 @@ export default function SpamDetection() {
     const [file, setFile] = useState<globalThis.File | null>(null);
     const [darkMode, setDarkMode] = useState(false);
 
-    const { scan, data: predictions = [], isPending: scanning } = useUploadAndScan();
+    const { scan, data: scanResponse = { data: [] }, isPending: scanning } = useUploadAndScan();
     const { train, isPending: training } = useTrainModelUseCase();
 
     // Combined loading state for both operations
@@ -65,10 +65,10 @@ export default function SpamDetection() {
                         />
                     </div>
 
-                    {predictions.length > 0 && (
+                    {scanResponse.data && scanResponse.data.length > 0 && (
                         <div className="mt-6">
                             <h2 className="text-base font-medium mb-2">📊 Prediction Results</h2>
-                            <PredictionList predictions={predictions} />
+                            <PredictionList predictions={scanResponse.data} />
                         </div>
                     )}
                 </div>
