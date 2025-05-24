@@ -65,10 +65,10 @@ export default function SpamDetection() {
                         />
                     </div>
 
-                    {scanResponse.data && scanResponse.data.length > 0 && (
+                    {(scanResponse?.data?.length ?? 0) > 0 && (
                         <div className="mt-6">
                             <h2 className="text-base font-medium mb-2">📊 Prediction Results</h2>
-                            <PredictionList predictions={scanResponse.data} />
+                            <PredictionList predictions={scanResponse?.data || []} />
                         </div>
                     )}
                 </div>

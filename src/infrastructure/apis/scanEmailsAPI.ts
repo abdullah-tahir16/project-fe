@@ -7,7 +7,10 @@ export const scanEmailsAPI = async (file: File): Promise<ScanResponse> => {
 
     const response = await httpBackend.post<ScanResponse>('/scan', formData);
     if (response.data?.data) {
-        return response.data;
+        return { 
+            message: response.data.message || 'Scan complete',
+            data: response.data.data 
+        };
     }
     throw new Error(response.data?.message || 'Failed to scan emails');
 };
