@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import * as React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
