@@ -1,5 +1,5 @@
-import { useUploadAndScan } from '../../infrastructure/useCases/SpamDetection/uploadAndScan.ts';
-import { useTrainModelUseCase } from '../../infrastructure/useCases/SpamDetection/trainModel.ts';
+import { useUploadAndScan } from '../../infrastructure/usecases/SpamDetection/uploadAndScan.ts';
+import { useTrainModelUseCase } from '../../infrastructure/usecases/SpamDetection/trainModel.ts';
 import { useState } from 'react';
 import FileInput from '../../components/FileInput/FileInput';
 import Button from '../../components/Button/Button';
