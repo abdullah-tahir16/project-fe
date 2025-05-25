@@ -1,4 +1,4 @@
-import { useUploadAndScan } from '../../infrastructure/usecases/SpamDetection/useUploadAndScan.ts';
+import { useUploadAndScanUseCase } from '../../infrastructure/usecases/SpamDetection/useUploadAndScanUseCase.ts';
 import { useTrainModelUseCase } from '../../infrastructure/usecases/SpamDetection/useTrainModelUseCase.ts';
 import { useState } from 'react';
 import FileInput from '../../components/FileInput/FileInput';
@@ -12,7 +12,7 @@ export default function SpamDetection() {
     const [file, setFile] = useState<globalThis.File | null>(null);
     const [darkMode, setDarkMode] = useState(false);
 
-    const { scan, data: scanResponse = { data: [] }, isPending: scanning } = useUploadAndScan();
+    const { scan, data: scanResponse = { data: [] }, isPending: scanning } = useUploadAndScanUseCase();
     const { train, isPending: training } = useTrainModelUseCase();
     const isLoading = scanning || training;
 
