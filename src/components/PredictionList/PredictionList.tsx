@@ -4,7 +4,9 @@ interface Props {
     predictions: { subject: string; prediction: number }[];
 }
 
-export default function PredictionList({ predictions }: Props) {
+export default function PredictionList(props: Props) {
+    const { predictions } = props;
+
     return (
         <ul className="space-y-2">
             {predictions.map((item, idx) => (

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import * as React from "react";
+import * as React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string;
@@ -13,8 +13,15 @@ const variantStyles = {
     danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
 };
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ label, variant = 'primary', className, ...props }, ref) => (
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+    const {
+        label,
+        variant = 'primary',
+        className,
+        ...rest
+    } = props;
+
+    return (
         <button
             ref={ref}
             className={twMerge(
@@ -22,12 +29,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 variantStyles[variant],
                 className
             )}
-            {...props}
+            {...rest}
         >
             {label}
         </button>
-    )
-);
+    );
+});
 
 Button.displayName = 'Button';
 

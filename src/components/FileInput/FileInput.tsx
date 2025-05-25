@@ -2,7 +2,8 @@ interface Props {
     onChange: (file: File) => void;
 }
 
-export default function FileInput({ onChange }: Props) {
+export default function FileInput(props: Props) {
+    const { onChange } = props
     return (
         <label className="block w-full">
             <span className="sr-only">Upload CSV file</span>
