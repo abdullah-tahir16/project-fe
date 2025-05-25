@@ -1,14 +1,13 @@
 import axios from 'axios';
 
 const httpBackend = axios.create({
-    baseURL: "http://localhost:8000",
-    withCredentials: true, // Enable withCredentials for CORS
+    baseURL: import.meta.env.VITE_API_BASE_URL,
+    withCredentials: true,
     headers: {
         'Accept': 'application/json',
     },
 });
 
-// Add interceptor to handle different Content-Types
 httpBackend.interceptors.request.use((config) => {
     if (config.data instanceof FormData) {
         config.headers['Content-Type'] = 'multipart/form-data';
