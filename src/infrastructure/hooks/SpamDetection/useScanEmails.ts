@@ -1,4 +1,4 @@
-import {scanEmailsAPI} from "../apis/scanEmailsAPI.ts";
+import {scanEmailsAPI} from "../../apis/SpamDetection/scanEmailsAPI.ts";
 import {useMutation} from "@tanstack/react-query";
 import type {ScanResponse} from "../../types/types.ts";
 

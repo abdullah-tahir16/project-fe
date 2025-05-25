@@ -1,4 +1,4 @@
-import { useScanEmails } from '../hooks/useScanEmails';
+import { useScanEmails } from '../../hooks/SpamDetection/useScanEmails.ts';
 import { toast } from 'react-toastify';
 
 export const useUploadAndScan = () => {

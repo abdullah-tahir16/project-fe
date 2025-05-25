@@ -1,4 +1,4 @@
-import { useTrainModel } from '../hooks/useTrainModel';
+import { useTrainModel } from '../../hooks/SpamDetection/useTrainModel.ts';
 import { toast } from 'react-toastify';
 
 export const useTrainModelUseCase = () => {

@@ -1,4 +1,4 @@
-import {httpBackend} from "../utils/httpBackend";
+import {httpBackend} from "../../utils/httpBackend";
 import type {TrainResponse} from "../../types/types.ts";
 
 export const trainModelAPI = async (): Promise<TrainResponse> => {

@@ -1,5 +1,5 @@
 import type { ScanResponse} from "../../types/types.ts";
-import {httpBackend} from "../utils/httpBackend";
+import {httpBackend} from "../../utils/httpBackend";
 
 export const scanEmailsAPI = async (file: File): Promise<ScanResponse> => {
     const formData = new FormData();
